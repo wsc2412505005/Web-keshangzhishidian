@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #000000;
+  --color-bg-soft: #111111;
+  --color-surface: rgba(20, 20, 20, 0.75);
+  --color-surface-solid: #141414;
+  --color-text: #ffffff;
+  --color-muted: #8e8e93;
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-emerald: #ffffff;
+  --color-emerald-soft: rgba(255, 255, 255, 0.08);
+  --color-gold: #ffffff;
+  --color-gold-soft: rgba(255, 255, 255, 0.12);
+  --color-risk: #ff3b30;
+  --shadow-deep: 0 32px 90px rgba(0, 0, 0, 0.34);
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  color: var(--color-text);
+  background: var(--color-bg);
+  font-family:
+    "Aptos", "Segoe UI", "Microsoft YaHei UI", "Microsoft YaHei", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#app {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+  font-family: serif;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  background:
+    radial-gradient(
+      circle at 16% 8%,
+      rgba(255, 255, 255, 0.03),
+      transparent 28%
+    ),
+    radial-gradient(circle at 84% 14%, rgba(255, 255, 255, 0.04), transparent 32%),
+    var(--color-bg);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.motion-reveal.motion-reveal {
+  opacity: 0;
+  filter: blur(10px);
+  transform: translate3d(0, 34px, 0) scale(0.985);
+  transition:
+    opacity 0.9s var(--ease-premium),
+    filter 0.9s var(--ease-premium),
+    transform 0.9s var(--ease-premium);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, filter, transform;
+}
+
+.motion-reveal.motion-reveal-left {
+  transform: translate3d(-26px, 30px, 0) scale(0.985);
+}
+
+.motion-reveal.motion-reveal-right {
+  transform: translate3d(36px, 24px, 0) scale(0.985);
+}
+
+.motion-reveal.motion-reveal-card {
+  transform: translate3d(0, 42px, 0) scale(0.975);
+}
+
+.motion-reveal.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .motion-reveal.motion-reveal {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+}
